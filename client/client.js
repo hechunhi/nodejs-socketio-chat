@@ -8,7 +8,8 @@
 	dx = dc ? dd: db,
 	ec = encodeURIComponent;
 	
-	
+var serverUrl = 'ws://23.105.218.21:3000/';
+
 	w.CHAT = {
 		msgObj:d.getElementById("message"),
 		screenheight:w.innerHeight ? w.innerHeight : dx.clientHeight,
@@ -97,7 +98,7 @@
 			this.scrollToBottom();
 			
 			//连接websocket后端服务器
-			this.socket = io.connect('ws://realtime.plhwin.com');
+			this.socket = io.connect(serverUrl);
 			
 			//告诉服务器端有用户登录
 			this.socket.emit('login', {userid:this.userid, username:this.username});
